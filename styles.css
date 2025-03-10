@@ -118,7 +118,7 @@
   .hero {
     position: relative;
     padding: 150px 0 100px;
-    background: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/a_male_electrician_works_in_a_switchboard_with_an_2023_11_27_05.jpg-RTKgP5dQ0Ye77zSsOQd7b0N46W4Z8W.jpeg")
+    background: url("hero.jpg")
       no-repeat center center;
     background-size: cover;
     color: var(--white);
@@ -217,7 +217,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lPqtBOJCmdzIZ0c39nILAgJeLLSoJg.png")
+    background: url("im2.jpg")
       no-repeat center center;
     background-size: cover;
     opacity: 0.05;
@@ -398,7 +398,23 @@
   
   /* Contact Section */
   .contact {
-    background-color: var(--gray);
+    background-color: var(--light-color);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("im3.jpg")
+      no-repeat center center;
+    background-size: cover;
+    opacity: 0.05;
+    z-index: 0;
   }
   
   .contact-content {
@@ -473,8 +489,8 @@
   
   /* Footer */
   footer {
-    background-color: var(--dark-color);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--black);
     padding: 40px 0;
   }
   
@@ -482,10 +498,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-height: 150px;
   }
   
   .footer-logo img {
-    height: 50px;
+    height:150px;
     width: auto;
   }
   
