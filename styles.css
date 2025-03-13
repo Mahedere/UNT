@@ -1,11 +1,11 @@
 :root {
-    --primary-color: #0077b6;
-    --secondary-color: #00b4d8;
-    --accent-color: #48cae4;
-    --dark-color: #023e8a;
-    --light-color: #caf0f8;
+    --primary-color: #ff0000; /* Red from logo */
+    --secondary-color: #00ffff; /* Cyan from logo */
+    --accent-color: #ccff00; /* Neon yellow/green from logo */
+    --dark-color: #000000; /* Black from logo */
+    --gray-color: #808080; /* Gray from logo */
     --white: #ffffff;
-    --black: #333333;
+    --black: #000000;
     --gray: #f8f9fa;
     --transition: all 0.3s ease;
   }
@@ -38,7 +38,7 @@
   .language-toggle {
     display: flex;
     margin-right: 20px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     border-radius: 30px;
     overflow: hidden;
   }
@@ -54,7 +54,7 @@
   }
   
   .language-toggle button.active {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
   }
   
   /* Header */
@@ -63,7 +63,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--white);
+    background-color: var(--gray-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 100;
     padding: 10px 0; /* Reduced padding to accommodate larger logo */
@@ -97,7 +97,7 @@
   }
   
   .nav-links a:hover {
-    color: var(--primary-color);
+    color: var(--accent-color);
   }
   
   .hamburger {
@@ -131,7 +131,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 119, 182, 0.85), rgba(0, 180, 216, 0.85));
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6))
   }
   
   .hero-content {
@@ -143,6 +143,11 @@
     font-size: 3rem;
     margin-bottom: 20px;
     animation: fadeInUp 1s ease;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
   
   .hero-content p {
@@ -157,21 +162,21 @@
   
   .btn {
     display: inline-block;
-    background-color: var(--white);
-    color: var(--primary-color);
+    background-color: var(--accent-color);
+    color: var(--black);
     padding: 12px 30px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
-    border: 2px solid var(--white);
+    border: 2px solid var(--accent-color);
     animation: fadeInUp 1s ease 0.4s;
     animation-fill-mode: both;
   }
   
   .btn:hover {
     background-color: transparent;
-    color: var(--white);
+    color: var(--accent-color);
   }
   
   /* Section Styles */
@@ -200,7 +205,7 @@
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color);
   }
   
   /* About Section - Redesigned */
@@ -217,7 +222,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("im2.jpg")
+    background: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lPqtBOJCmdzIZ0c39nILAgJeLLSoJg.png")
       no-repeat center center;
     background-size: cover;
     opacity: 0.05;
@@ -239,6 +244,12 @@
     align-items: center;
     gap: 20px;
     transition: var(--transition);
+    position: relative;
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white),
+      linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
   }
   
   .about-card:hover {
@@ -333,6 +344,8 @@
   .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+    animation: glowAccent 2s infinite;
   }
   
   .service-icon {
@@ -366,11 +379,14 @@
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
+    border: 1px solid transparent;
   }
   
   .tool-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
   }
   
   .tool-image {
@@ -398,23 +414,7 @@
   
   /* Contact Section */
   .contact {
-    background-color: var(--light-color);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contact::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("im3.jpg")
-      no-repeat center center;
-    background-size: cover;
-    opacity: 0.05;
-    z-index: 0;
+    background-color: var(--gray);
   }
   
   .contact-content {
@@ -442,7 +442,7 @@
   .contact-icon svg {
     width: 24px;
     height: 24px;
-    fill: var(--primary-color);
+    fill: var(--accent-color);
   }
   
   .contact-item h3 {
@@ -472,25 +472,26 @@
   
   .form-group input:focus,
   .form-group textarea:focus {
-    border-color: var(--primary-color);
+    border-color: var(--accent-color);
     outline: none;
+    box-shadow: 0 0 5px rgba(204, 255, 0, 0.3);
   }
   
   .contact-form .btn {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: 2px solid var(--primary-color);
+    background-color: var(--accent-color);
+    color: var(--black);
+    border: 2px solid var(--accent-color);
   }
   
   .contact-form .btn:hover {
     background-color: transparent;
-    color: var(--primary-color);
+    color: var(--accent-color);
   }
   
   /* Footer */
   footer {
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--dark-color);
+    color: var(--white);
     padding: 40px 0;
   }
   
@@ -498,11 +499,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-height: 150px;
   }
   
   .footer-logo img {
-    height:150px;
+    height: 50px;
     width: auto;
   }
   
@@ -556,7 +556,7 @@
       left: -100%;
       width: 100%;
       height: calc(100vh - 100px);
-      background-color: var(--white);
+      background-color: rgba(0, 0, 0, 0.95);
       flex-direction: column;
       align-items: center;
       padding-top: 50px;
@@ -601,6 +601,18 @@
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg) translate(7px, -6px);
     }
+  
+    .nav-links a {
+      color: var(--white);
+    }
+  
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+  
+    .hamburger span {
+      background-color: var(--accent-color);
+    }
   }
   
   @media (max-width: 576px) {
@@ -614,7 +626,7 @@
     }
   
     .logo img {
-      height: 70px;
+      height: 70px; /* Slightly smaller on very small screens */
     }
   
     .hero-content h1 {
@@ -643,6 +655,19 @@
     .language-toggle button {
       padding: 4px 8px;
       font-size: 0.9rem;
+    }
+  }
+  
+  /* Add some subtle animations with the brand colors */
+  @keyframes glowAccent {
+    0% {
+      box-shadow: 0 0 5px var(--accent-color);
+    }
+    50% {
+      box-shadow: 0 0 20px var(--accent-color);
+    }
+    100% {
+      box-shadow: 0 0 5px var(--accent-color);
     }
   }
   
